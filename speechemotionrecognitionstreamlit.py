@@ -13,6 +13,7 @@ Original file is located at
 import os
 import numpy as np
 # import librosa
+pip install git+https://github.com/librosa/librosa
 import pandas as pd
 import IPython.display as ipd
 from matplotlib import pyplot as plt
