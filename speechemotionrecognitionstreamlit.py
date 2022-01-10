@@ -23,7 +23,7 @@ import random
 from random import randrange, uniform
 
 from tensorflow.python.framework import dtypes
-!pip install tensorflow_io
+# pip install tensorflow_io
 import cv2
 import tensorflow as tf
 import tensorflow_io as tfio
