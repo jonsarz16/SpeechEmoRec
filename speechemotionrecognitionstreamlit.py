@@ -12,16 +12,15 @@ Original file is located at
 # Python
 import os
 import numpy as np
-# import librosa
-pip install git+https://github.com/librosa/librosa
-import pandas as pd
-import IPython.display as ipd
-from matplotlib import pyplot as plt
-
 import math
 import scipy
 import random
 from random import randrange, uniform
+import librosa
+import pandas as pd
+import IPython.display as ipd
+from matplotlib import pyplot as plt
+
 
 from tensorflow.python.framework import dtypes
 # pip install tensorflow_io
