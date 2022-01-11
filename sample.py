@@ -11,7 +11,7 @@ import streamlit as st
 
 # # model = tf.keras.models.load_model("saved_model/mdl_wts.hdf5")
 ### load file
-uploaded_file = st.file_uploader("Choose a image file", type=['mp3','wav'])
+uploaded_file = st.file_uploader("", type=['mp3','wav'])
 
 
 
