@@ -26,8 +26,7 @@ uploaded_file = st.file_uploader("Choose a image file", type="jpg")
 
 #     resized = mobilenet_v2_preprocess_input(resized)
 #     img_reshape = resized[np.newaxis,...]
-
-    CLASSIFY = st.button("Generate Prediction")    
+CLASSIFY = st.button("Generate Prediction")    
     if CLASSIFY:
 #         prediction = model.predict(img_reshape).argmax()
-        st.title("the result is")
+       st.title("the result is")
