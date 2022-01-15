@@ -1,0 +1,93 @@
+#link: https://gist.github.com/MuhammadArdiPutra/0079188c37caa21c6b7c3e86d41fcd59/
+#link: https://github.com/rosariomoscato/Rosario-Moscato-Lab/blob/main/Audio/Music_Genre_Classification_2.ipynb
+from sklearn.metrics import confusion_matrix
+from keras.layers import Conv2D, Flatten, Dense, Dropout, BatchNormalization
+from keras.models import Sequential, load_model
+import tensorflow.keras as keras
+from sklearn.preprocessing import OneHotEncoder
+
+# Value normalization
+# X_train  = X_train/255
+# X_test  = X_test/255
+
+X_train = X_train.reshape(X_train.shape[0], X_train.shape[1], X_train.shape[2], 1)
+X_test = X_test.reshape(X_test.shape[0], X_test.shape[1], X_test.shape[2], 1)
+
+input_shape = (X_train.shape[1], X_train.shape[2], 1)
+
+
+#Building DSCNN model
+model = Sequential()
+
+
+
+#1st convolution layer
+
+model.add(Conv2D(32, 11, activation='relu', strides=(2, 2), padding='same', input_shape=input_shape))
+
+
+model.add(BatchNormalization())
+
+
+
+#2nd convolution layer
+
+model.add(Conv2D(64, 7, activation='relu', strides=(2, 2), padding='same'))
+
+
+model.add(BatchNormalization())
+
+
+#3rd convolution layer
+
+model.add(Conv2D(128, 5, activation='relu', strides=(2, 2), padding='same'))
+
+
+model.add(BatchNormalization())
+
+
+#4th convolution layer
+
+model.add(Conv2D(128, 5, activation='relu', strides=(2, 2), padding='same'))
+
+
+model.add(BatchNormalization())
+
+
+#5th convolution layer
+
+model.add(Conv2D(256, 5, activation='relu', strides=(2, 2), padding='same'))
+
+
+model.add(BatchNormalization())
+
+
+#flatten layer
+model.add(Flatten())
+
+
+#1st fully connected layer
+
+model.add(Dense(512, activation='relu'))
+
+
+#2nd fully connected layer
+
+model.add(Dense(1024, activation='relu'))
+
+
+#dropput layer
+
+model.add(Dropout(0.5))
+
+#output/classification layer
+
+model.add(Dense(7, activation='softmax'))
+
+
+
+# compile model
+optimiser = keras.optimizers.Adam(learning_rate=0.0001)
+model.compile(optimizer=optimiser,
+              loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
