@@ -307,6 +307,8 @@ for row in (speech_df[2:3].itertuples()): #row[0] = index number(0 to 2800) row[
 
 
 
+
+
 #image file name
 def fn_label(emotion, actress):
   emotions = {
@@ -327,7 +329,7 @@ def fn_label(emotion, actress):
   return emotions[emotion]+"_"+act
 
 
-
+# Training Data
 
 
 
