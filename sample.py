@@ -6,11 +6,14 @@ st.title("Speech Emotion Recognition")
 import numpy as np
 import streamlit as st
 from preprocess_augment import *
-# import tensorflow as tf
-# from tensorflow.keras.preprocessing import image
-# from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2,preprocess_input as mobilenet_v2_preprocess_input
+import tensorflow as tf
+from keras.models import load_model
+import tensorflow.keras as keras
 
 # # model = tf.keras.models.load_model("saved_model/mdl_wts.hdf5")
+# load models
+model = load_model("Model/my_model3.hdf5")
+
 ### load file
 uploaded_file = st.file_uploader("", type=['mp3','wav'])
 
