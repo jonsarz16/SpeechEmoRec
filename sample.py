@@ -10,7 +10,6 @@ import tensorflow as tf
 from keras.models import load_model
 import tensorflow.keras as keras
 
-# # model = tf.keras.models.load_model("saved_model/mdl_wts.hdf5")
 # load models
 model = load_model("model.hdf5")
 
@@ -32,7 +31,7 @@ if file_audio is not None:
     st.write(X_train)
     # img_input
 
-    
+
 # CLASSIFY = st.button("Generate Prediction")    
 # if CLASSIFY:
 #     output = np.argmax(model.predict(mel_spect1), axis=1)
