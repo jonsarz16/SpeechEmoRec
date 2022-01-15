@@ -27,5 +27,4 @@ if file_audio is not None:
     # img_input
 CLASSIFY = st.button("Generate Prediction")    
 if CLASSIFY:
-    output = model.predict(mel_spect).argmax()
-    st.echo(output)
+    output = model.predict(mel_spect)
