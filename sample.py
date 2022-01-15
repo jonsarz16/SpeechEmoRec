@@ -10,6 +10,22 @@ import tensorflow as tf
 from keras.models import load_model
 import tensorflow.keras as keras
 
+
+
+
+
+import h5py
+filename = "model.hdf5"
+
+with h5py.File(filename, "r") as f:
+    # List all groups
+    print("Keys: %s" % f.keys())
+    a_group_key = list(f.keys())[0]
+
+    # Get the data
+    data = list(f[a_group_key])
+    st.write(data)
+
 # load models
 model = load_model("model.hdf5")
 
