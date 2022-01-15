@@ -29,4 +29,4 @@ if file_audio is not None:
     # img_input
 CLASSIFY = st.button("Generate Prediction")    
 if CLASSIFY:
-    output = model.predict(mel_spect1)
+    output = model.predict(mel_spect1[0])
