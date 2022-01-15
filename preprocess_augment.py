@@ -284,26 +284,26 @@ for row in (speech_df[2:3].itertuples()): #row[0] = index number(0 to 2800) row[
 
 
 
-import json
-from json import JSONEncoder
+# import json
+# from json import JSONEncoder
 
-#serialize the NumPy Array into JSON String meaning convert mel_spect 2D array to a json format
-class NumpyArrayEncoder(JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, np.ndarray):
-            return obj.tolist()
-        return JSONEncoder.default(self, obj)
+# #serialize the NumPy Array into JSON String meaning convert mel_spect 2D array to a json format
+# class NumpyArrayEncoder(JSONEncoder):
+#     def default(self, obj):
+#         if isinstance(obj, np.ndarray):
+#             return obj.tolist()
+#         return JSONEncoder.default(self, obj)
 
 
-#Create directory for....
-save_path = '/Mel Spectrogram/'
+# #Create directory for....
 # save_path = '/Mel Spectrogram/'
-# Check whether the specified path exists or not
-isExist = os.path.exists(save_path)
+# # save_path = '/Mel Spectrogram/'
+# # Check whether the specified path exists or not
+# isExist = os.path.exists(save_path)
 
-if not isExist:
-  # Create a new directory if does not exist 
-  os.makedirs(save_path)
+# if not isExist:
+#   # Create a new directory if does not exist 
+#   os.makedirs(save_path)
 
 
 
