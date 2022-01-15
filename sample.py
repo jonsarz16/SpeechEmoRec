@@ -23,8 +23,8 @@ if file_audio is not None:
     sample, srate = librosa.load(file_audio)
     mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
     mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
-    mel_spect1 = cv2.resize(mel_spect, (256, 256))
-    # train_x = X_train['MelSpectrogram'].values.tolist()
+    mel_spect1 = cv2.resize(mel_spect, (256, 256)).values.tolist()
+    
     input = np.asarray(mel_spect1, dtype=np.float64)
 
     input = np.array(input)
