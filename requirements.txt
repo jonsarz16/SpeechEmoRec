@@ -6,6 +6,7 @@ matplotlib==3.2.2
 tensorflow-io==0.23.1
 opencv-contrib-python==4.1.2.30 
 opencv-python==4.1.2.30
+json==2.0.9
 
 
 
