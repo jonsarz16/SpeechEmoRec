@@ -15,22 +15,17 @@ import tensorflow.keras as keras
 model = load_model("model.hdf5")
 
 ### load file
-uploaded_file = st.file_uploader("", type=['mp3','wav'])
+file_audio = st.file_uploader("", type=['mp3','wav'])
 
 
 
-# if uploaded_file is not None:
-#     # Convert the file to an opencv image.
-#     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-#     opencv_image = cv2.imdecode(file_bytes, 1)
-#     opencv_image = cv2.cvtColor(opencv_image, cv2.COLOR_BGR2RGB)
-#     resized = cv2.resize(opencv_image,(224,224))
-#     # Now do something with the image! For example, let's display it:
-#     st.image(opencv_image, channels="RGB")
-
-#     resized = mobilenet_v2_preprocess_input(resized)
-#     img_reshape = resized[np.newaxis,...]
+if file_audio is not None:
+    # preprocess the audio file
+    sample, srate = librosa.load(file_audio)
+    mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
+    mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
+    # img_input
 CLASSIFY = st.button("Generate Prediction")    
 if CLASSIFY:
-#         prediction = model.predict(img_reshape).argmax()
-    st.title("the result is")
+    output = model.predict(mel_spect).argmax()
+    st.echo(output)
