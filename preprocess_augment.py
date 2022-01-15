@@ -24,11 +24,11 @@ dir_list.sort()
 speech_df = pd.DataFrame(columns=['file_path', 'actress', 'emotion'])
 count = 0
 for i in dir_list:
-    file_list = os.listdir('/content/gdrive/My Drive/TESS/' + i)
+    file_list = os.listdir('/TESS/' + i)
     # file_list = os.listdir('TESS/' + i)
     for f in file_list:
         nm = f.split('.')[0].split('-')
-        file_path = '/content/gdrive/My Drive/TESS/' + i + '/' + f
+        file_path = '/TESS/' + i + '/' + f
         # file_path = 'TESS/' + i + '/' + f
         emotions = ["angry", "sad", "neutral", "happy", "fear", "disgust", "surprise"]
 
