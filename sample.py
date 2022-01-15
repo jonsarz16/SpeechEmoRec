@@ -19,7 +19,7 @@ file_audio = st.file_uploader("", type=['mp3','wav'])
 
 
 
-if file_audio is not None:
+if file_audio is None:
     # preprocess the audio file
     sample, srate = librosa.load(file_audio)
     mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
