@@ -23,16 +23,17 @@ if file_audio is not None:
     sample, srate = librosa.load(file_audio)
     mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
     mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
-    mel_spect1 = cv2.resize(mel_spect, (256, 256)).values.tolist()
-    
+    mel_spect1 = cv2.resize(mel_spect, (256, 256))
+    # train_x = X_train['MelSpectrogram'].values.tolist()
     input = np.asarray(mel_spect1, dtype=np.float64)
 
     input = np.array(input)
-    st.write(input)
+    input1 = input.reshape(input.shape[0], input.shape[1], input.shape[2], 1)
+    st.write(input1)
     
 
 
 CLASSIFY = st.button("Generate Prediction")    
 if CLASSIFY:
-    output = model.predict(input)
-    st.write(input)
+    output = model.predict(input1)
+    st.write(output)
