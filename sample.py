@@ -12,7 +12,7 @@ import tensorflow.keras as keras
 
 # # model = tf.keras.models.load_model("saved_model/mdl_wts.hdf5")
 # load models
-model = load_model("/Model/my_model3.hdf5")
+model = load_model("/Model/my_model.hdf5")
 
 ### load file
 uploaded_file = st.file_uploader("", type=['mp3','wav'])
