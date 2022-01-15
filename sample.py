@@ -28,12 +28,12 @@ if file_audio is not None:
     input = np.asarray(mel_spect1, dtype=np.float64)
 
     input = np.array(input)
-    input1 = input.reshape(input.shape[0], input.shape[1], input.shape[2], 1)
-    st.write(input1)
+    
+    st.write(input.shape)
     
 
 
 CLASSIFY = st.button("Generate Prediction")    
 if CLASSIFY:
-    output = model.predict(input1)
+    output = model.predict(input)
     st.write(output)
