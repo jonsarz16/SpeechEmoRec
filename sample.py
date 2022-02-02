@@ -22,6 +22,9 @@ def predict(audiofile):
     input = np.expand_dims(mel_spect1,axis=0) #single photo
     input1 = input[:,:,:,np.newaxis] #single photo
     return input1
+
+
+    
 # pred_class = []
 
 # with h5py.File("model.hdf5", "r") as f:
@@ -42,19 +45,15 @@ file_audio = st.file_uploader("", type=['mp3','wav'])
 
 
 if file_audio is not None:
-    # preprocess the audio file
     CLASSIFY = st.button("Generate Prediction")
-  
+  # preprocess the audio file
     input = predict(file_audio)
 else:
+    CLASSIFY = st.button("Generate Prediction on Test File")
     # preprocess the audio file
     audio_file = open('YAF_back_angry.wav', 'rb')
-  
     input = predict(audio_file)
     
-
-
-   
 if CLASSIFY:
     output = model.predict(input)
     st.write(output)
