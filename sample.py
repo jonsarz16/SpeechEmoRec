@@ -31,6 +31,7 @@ file_audio = st.file_uploader("", type=['mp3','wav'])
 
 if file_audio is not None:
     # preprocess the audio file
+    CLASSIFY = st.button("Generate Prediction") 
     sample, srate = librosa.load(file_audio)
     mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
     mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
@@ -44,7 +45,8 @@ if file_audio is not None:
     st.write(input1.shape)
 else:
     # preprocess the audio file
-    st.title("Try test file")
+    
+    CLASSIFY = st.button("Generate Prediction on test file") 
     sample, srate = librosa.load("YAF_back_angry.wav")
     mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
     mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
@@ -59,7 +61,7 @@ else:
     
 
 
-CLASSIFY = st.button("Generate Prediction")    
+   
 if CLASSIFY:
     output = model.predict(input1)
     st.write(output)
