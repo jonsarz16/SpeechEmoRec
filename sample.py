@@ -11,6 +11,18 @@ from keras.models import load_model
 import tensorflow.keras as keras
 import h5py
 
+def predict(audiofile):
+    sample, srate = librosa.load(audiofile)
+    mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
+    mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
+    mel_spect1 = cv2.resize(mel_spect, (256, 256))
+   
+    mel_spect1 = mel_spect1.astype("float")
+    mel_spect1 = np.array(mel_spect1)
+    input = np.expand_dims(mel_spect1,axis=0) #single photo
+    input1 = input[:,:,:,np.newaxis] #single photo
+    return input1
+# pred_class = []
 
 # with h5py.File("model.hdf5", "r") as f:
 #     # List all groups
@@ -31,37 +43,21 @@ file_audio = st.file_uploader("", type=['mp3','wav'])
 
 if file_audio is not None:
     # preprocess the audio file
-    CLASSIFY = st.button("Generate Prediction") 
-    sample, srate = librosa.load(file_audio)
-    mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
-    mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
-    mel_spect1 = cv2.resize(mel_spect, (256, 256))
-   
-    mel_spect1 = mel_spect1.astype("float")
-    mel_spect1 = np.array(mel_spect1)
-    input = np.expand_dims(mel_spect1,axis=0) #single photo
-    input1 = input[:,:,:,np.newaxis] #single photo
-
-    st.write(input1.shape)
+    CLASSIFY = st.button("Generate Prediction")
+    audio_bytes = file_audio.read()
+    st.audio(audio_bytes, format='audio/wav')
+    input = predict(file_audio)
 else:
     # preprocess the audio file
-    
-    CLASSIFY = st.button("Generate Prediction on test file") 
-    sample, srate = librosa.load("YAF_back_angry.wav")
-    mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
-    mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
-    mel_spect1 = cv2.resize(mel_spect, (256, 256))
-   
-    mel_spect1 = mel_spect1.astype("float")
-    mel_spect1 = np.array(mel_spect1)
-    input = np.expand_dims(mel_spect1,axis=0) #single photo
-    input1 = input[:,:,:,np.newaxis] #single photo
+    audio_file = open('YAF_back_angry.wav', 'rb')
+    audio_bytes = audio_file.read()
 
-    st.write(input1.shape)
+    st.audio(audio_bytes, format='audio/wav')
+    input = predict(audio_file)
     
 
 
    
 if CLASSIFY:
-    output = model.predict(input1)
+    output = model.predict(input)
     st.write(output)
