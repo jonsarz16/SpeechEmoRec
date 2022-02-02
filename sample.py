@@ -20,12 +20,12 @@ file_audio = st.file_uploader("", type=['mp3','wav'])
 if file_audio is not None:
     CLASSIFY = st.button("Generate Prediction")
   # preprocess the audio file
-    input = predict(file_audio)
+    input = model_predict(file_audio)
 else:
     CLASSIFY = st.button("Generate Prediction on Test File")
     # preprocess the audio file
     audio_file = open('YAF_back_angry.wav', 'rb')
-    input = predict(audio_file)
+    input = model_predict(audio_file)
     
 if CLASSIFY:
     output = model.predict(input)
