@@ -49,9 +49,7 @@ if file_audio is not None:
 else:
     # preprocess the audio file
     audio_file = open('YAF_back_angry.wav', 'rb')
-    audio_bytes = audio_file.read()
-
-    st.audio(audio_bytes, format='audio/wav')
+  
     input = predict(audio_file)
     
 
