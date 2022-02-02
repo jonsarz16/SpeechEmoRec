@@ -44,8 +44,7 @@ file_audio = st.file_uploader("", type=['mp3','wav'])
 if file_audio is not None:
     # preprocess the audio file
     CLASSIFY = st.button("Generate Prediction")
-    audio_bytes = file_audio.read()
-    st.audio(audio_bytes, format='audio/wav')
+  
     input = predict(file_audio)
 else:
     # preprocess the audio file
