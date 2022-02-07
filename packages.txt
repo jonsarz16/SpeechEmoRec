@@ -1,4 +1,0 @@
-freeglut3
-libgtk2.0
-
-
