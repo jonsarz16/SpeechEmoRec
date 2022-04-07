@@ -1,7 +1,7 @@
 import streamlit as st
 
-st.title("Speech Emotion Recognition")
-st.title("Tudtud - Badang - Sarigumba")
+st.header("Speech Emotion Recognition")
+st.subheader("Tudtud - Badang - Sarigumba")
 # import cv2
 import numpy as np
 import streamlit as st
