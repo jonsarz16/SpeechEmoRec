@@ -1,7 +1,9 @@
 import streamlit as st
 
 st.header("Speech Emotion Recognition")
-st.subheader("Tudtud - Badang - Sarigumba")
+
+lbl = '<p style="font-family:Courier; color:Blue; font-size: 20px;">Tudtud - Badang - Sarigumba</p>'
+st.markdown(lbl, unsafe_allow_html=True)
 # import cv2
 import numpy as np
 import streamlit as st
