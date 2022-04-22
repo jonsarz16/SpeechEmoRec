@@ -2,9 +2,9 @@ import streamlit as st
 
 st.header("Speech Emotion Recognition")
 
-st.sidebar.button("Baseline Algorithm DSCNN Model")
-st.sidebar.button("Improved Algorithm using DSCNN-ELM")
-st.sidebar.button("Other Information")
+# st.sidebar.button("Baseline Algorithm DSCNN Model")
+# st.sidebar.button("Improved Algorithm using DSCNN-ELM")
+# st.sidebar.button("Other Information")
 lbl = '<p style="font-family:Courier; color:Blue; font-size: 20px;">Tudtud - Badang - Sarigumba</p>'
 st.markdown(lbl, unsafe_allow_html=True)
 # import cv2
