@@ -2,6 +2,10 @@ import streamlit as st
 
 st.header("Speech Emotion Recognition")
 
+st.sidebar.button("Menu 1")
+st.sidebar.button("Menu 2")
+st.sidebar.button("Menu 3")
+
 lbl = '<p style="font-family:Courier; color:Blue; font-size: 20px;">Tudtud - Badang - Sarigumba</p>'
 st.markdown(lbl, unsafe_allow_html=True)
 # import cv2
