@@ -49,7 +49,6 @@ if selected == "Improved Algo":
 
 if selected == "Performance Comparison":
     st.write("Analysis")
-    col1, col2 = st.columns(2)
-    file_audio = st.file_uploader("", type=['mp3','wav'])
-    
+    with st.container():
+        file_audio = st.file_uploader("", type=['mp3','wav'])
 
