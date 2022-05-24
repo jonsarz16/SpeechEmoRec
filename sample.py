@@ -23,8 +23,8 @@ selected = option_menu(
 
 def run_model(model):
         # load file
-    col1, col2 = st.columns(2)
-    col1.file_audio = st.file_uploader("", type=['mp3','wav'])
+
+    file_audio = st.file_uploader("", type=['mp3','wav'])
 
     if file_audio is not None:
         CLASSIFY = st.button("Generate Prediction")
@@ -34,7 +34,7 @@ def run_model(model):
         CLASSIFY = st.button("Generate Prediction on Test File")
     # preprocess the audio file
         audio_file = open('YAF_back_angry.wav', 'rb')
-        col2.input = model_predict(audio_file)
+        input = model_predict(audio_file)
     
     
     
