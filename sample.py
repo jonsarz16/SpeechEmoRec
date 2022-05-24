@@ -49,8 +49,6 @@ if selected == "Improved Algo":
 
 if selected == "Performance Comparison":
     st.write("Analysis")
-
-    with st.columns:
-        file_audio = st.file_uploader("", type=['mp3','wav'])
-    with st.columns:
-        file_audios = st.file_uploader("", type=['mp3','wav'])
+    my_expander = st.expander()
+    my_expander.write('Hello there!')
+    clicked = my_expander.button('Click me!')
