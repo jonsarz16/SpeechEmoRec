@@ -1,5 +1,9 @@
 import streamlit as st
 from streamlit_option_menu import option_menu 
+from model_predict import *
+import tensorflow as tf
+from keras.models import load_model
+import tensorflow.keras as keras
 
 
 selected = option_menu(
@@ -18,8 +22,10 @@ selected = option_menu(
 )
 
 if selected == "Improved Algo":
-    st.title(f"You have selected {selected}")
+    # st.title(f"You have selected {selected}")
 if selected == "Baseline":
-    st.title(f"You have selected {selected}")
+    st.write(f"You have selected {selected}")
+   model = load_model("model.hdf5")
+   main(model)
 if selected == "Performance Comparison":
-    st.title(f"You have selected {selected}")
+    
