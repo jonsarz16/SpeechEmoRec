@@ -17,7 +17,7 @@ def model_predict(audiofile):
     plt.ylabel("Amplitude")
     plt.show()  
     plt.savefig('waveplot.png')
-    st.image('waveplot.png', caption='Audio waveplot',width=50)
+    st.image('waveplot.png', caption='Audio waveplot',width=75)
     # createWaveplot(sample,srate)
     # mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
     # mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
