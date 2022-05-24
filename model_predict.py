@@ -30,8 +30,8 @@ def model_predict(audiofile):
     plt.ylabel("Frequency")
     # plt.colorbar()
     plt.title("Spectrogram")
-    plt.savefig('spec.png',transparent=True,dpi = 70)
-    st.image('spec.png', caption=' ')
+    plt.savefig('specs.png',transparent=True,dpi = 70)
+    st.image('specs.png', caption=' ')
     # createWaveplot(sample,srate)
     # mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
     # mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
