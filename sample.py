@@ -23,10 +23,12 @@ selected = option_menu(
 
 if selected == "Baseline":
     st.write(f"You have selected {selected}")
-    # load models
     model = load_model("model.hdf5")
+    run_model(model)
 
-    # load file
+
+def run_model(model):
+        # load file
     file_audio = st.file_uploader("", type=['mp3','wav'])
 
     if file_audio is not None:
