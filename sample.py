@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 
 
 selected = option_menu(
-    menu_title="Main Menu",
+    None,
     options=["Improved Algo", "Baseline", "Performance Comparison"],
     icons=["arrow-up-right-circle","arrow-repeat","app"],
     menu_icon="cast",
