@@ -25,7 +25,7 @@ selected = option_menu(
 #     # st.title(f"You have selected {selected}")
 if selected == "Baseline":
     st.write(f"You have selected {selected}")
-    model = load_model("model.hdf5")
-    main(model)
+    mymodel = load_model("model.hdf5")
+    main(mymodel)
 # if selected == "Performance Comparison":
     
