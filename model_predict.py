@@ -11,5 +11,5 @@ def model_predict(audiofile):
     mel_spect1 = np.array(mel_spect1)
     input = np.expand_dims(mel_spect1,axis=0) #single photo
     input1 = input[:,:,:,np.newaxis] #single photo
-    return input1
+    return "Prediction......"
 
