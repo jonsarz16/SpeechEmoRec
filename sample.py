@@ -10,7 +10,7 @@ st.header("Speech Emotion Recognition")
 selected = option_menu(
     None,
     options=["Improved Algo", "Baseline", "Performance Comparison"],
-    icons=["arrow-up-right-circle","arrow-repeat","app"],
+    icons=["arrow-up-right-circle","arrow-repeat","terminal-split"],
     menu_icon="cast",
     default_index=0,
     orientation="horizontal",
