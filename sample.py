@@ -25,7 +25,7 @@ if selected == "Improved Algo":
     # st.title(f"You have selected {selected}")
 if selected == "Baseline":
     st.write(f"You have selected {selected}")
-   model = load_model("model.hdf5")
-   main(model)
+    model = load_model("model.hdf5")
+    main(model)
 if selected == "Performance Comparison":
     
