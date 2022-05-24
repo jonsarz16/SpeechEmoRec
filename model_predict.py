@@ -28,7 +28,7 @@ def model_predict(audiofile):
     librosa.display.specshow(spectrogram, sr=srate, hop_length=hop_length)
     plt.xlabel("Time")
     plt.ylabel("Frequency")
-    plt.colorbar()
+    # plt.colorbar()
     plt.title("Spectrogram")
     plt.savefig('spec.png',dpi = 70)
     st.image('spec.png', caption=' ')
