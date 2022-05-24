@@ -49,7 +49,7 @@ if selected == "Improved Algo":
 
 if selected == "Performance Comparison":
     st.write("Analysis")
-    col1.header("DSCNN Baseline")
-    # col1.image
-    col2.header("DSCNN Improved")
+    col1, col2 = st.columns(2)
+    file_audio = st.col1.file_uploader("", type=['mp3','wav'])
+    
 
