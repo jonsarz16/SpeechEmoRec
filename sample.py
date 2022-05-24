@@ -5,9 +5,9 @@ from model_predict import *
 import tensorflow as tf
 from keras.models import load_model
 import tensorflow.keras as keras
-
-st.header("Speech Emotion Recognition")
 st.set_page_config(layout="wide")
+st.header("Speech Emotion Recognition")
+
 selected = option_menu(
     None,
     options=["Improved Algo", "Baseline", "Performance Comparison"],
