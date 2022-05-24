@@ -23,17 +23,21 @@ selected = option_menu(
 )
 
 def run_model(model):
-    file_audio = st.file_uploader("", type=['mp3','wav'])
-    if file_audio is not None:
-        CLASSIFY = st.button("Generate Prediction")
-        input = model_predict(file_audio)
-    else:
-        CLASSIFY = st.button("Generate Prediction on Test File")
-        audio_file = open('YAF_back_angry.wav', 'rb')
-        input = model_predict(audio_file)
-    if CLASSIFY:
-        output = model.predict(input)
-        st.write(output)
+    col1, col2 = st.columns(2)
+
+    with col1:
+        file_audio = st.file_uploader("", type=['mp3','wav'])
+        if file_audio is not None:
+            CLASSIFY = st.button("Generate Prediction")
+            input = model_predict(file_audio)
+        else:
+            CLASSIFY = st.button("Generate Prediction on Test File")
+            audio_file = open('YAF_back_angry.wav', 'rb')
+            input = model_predict(audio_file)
+    with col2:    
+        if CLASSIFY:
+            output = model.predict(input)
+            st.write(output)
 
 if selected == "Baseline":
     
