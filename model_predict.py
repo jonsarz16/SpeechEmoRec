@@ -16,7 +16,7 @@ def model_predict(audiofile):
     plt.xlabel("Time (seconds)")
     plt.ylabel("Amplitude")
     plt.show()  
-    plt.savefig('waveplot.png',dpi = 125)
+    plt.savefig('waveplot.png',dpi = 100)
     st.image('waveplot.png', caption='Audio waveplot')
     # createWaveplot(sample,srate)
     # mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
