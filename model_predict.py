@@ -10,7 +10,7 @@ def createWaveplot(sample, sr):
 def model_predict(audiofile):
     sample, srate = librosa.load(audiofile)
     plt.figure()
-    librosa.display.waveplot(sample, sr)
+    librosa.display.waveplot(sample, srate)
     plt.title("Waveplot for audio")
     plt.xlabel("Time (seconds)")
     plt.ylabel("Amplitude")
