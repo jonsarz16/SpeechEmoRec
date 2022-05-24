@@ -37,7 +37,7 @@ def run_model(model):
     with col2:    
         if CLASSIFY:
             output = model.predict(input)
-            st.write(output)
+            st.write("Prediction Analysis.....")
 
 if selected == "Baseline":
     
