@@ -23,7 +23,8 @@ selected = option_menu(
 
 def run_model(model):
         # load file
-    file_audio = st.file_uploader("", type=['mp3','wav'])
+    col1, col2 = st.columns(2)
+    col1.file_audio = st.file_uploader("", type=['mp3','wav'])
 
     if file_audio is not None:
         CLASSIFY = st.button("Generate Prediction")
@@ -33,27 +34,22 @@ def run_model(model):
         CLASSIFY = st.button("Generate Prediction on Test File")
     # preprocess the audio file
         audio_file = open('YAF_back_angry.wav', 'rb')
-        input = model_predict(audio_file)
+        col2.input = model_predict(audio_file)
     
     
     
     if CLASSIFY:
         output = model.predict(input)
         st.write(output)
-col1, col2 = st.columns(2)
-if selected == "Baseline":
-    col1.header("Audio waveplot and Spectrogram")
-    # col1.image
-    col2.header("Prediction Results")
 
+if selected == "Baseline":
+    
     st.write(f"You have selected {selected}")
     model = load_model("model.hdf5")
     run_model(model)
 
 if selected == "Improved Algo":
-    col1.header("Audio waveplot and Spectrogram")
-    # col1.image
-    col2.header("Prediction Results")
+    
     st.write(f"You have selected {selected}")
     model = load_model("model.hdf5")
     run_model(model)
