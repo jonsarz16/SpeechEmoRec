@@ -22,21 +22,12 @@ selected = option_menu(
         "nav-link": {"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "#ffe100"},
         "nav-link-selected": {"background-color": "green"},}
 )
-def createWaveplot(sample, sr, e, a):
-  plt.figure()
-  librosa.display.waveplot(sample, sr)
-  plt.title("Waveplot for audio with {} emotion ({} voice)".format(e,a))
-  plt.xlabel("Time (seconds)")
-  plt.ylabel("Amplitude")
-  plt.show()
 
 
 def run_model(model):
     col1, col2 = st.columns(2)
     with col1:
         file_audio = st.file_uploader("", type=['mp3','wav'])
-        sample, srate = librosa.load(file_audio) 
-        createWaveplot(sample,srate,emotion, actress)
         if file_audio is not None:
             CLASSIFY = st.button("Generate Prediction")
             input = model_predict(file_audio)
