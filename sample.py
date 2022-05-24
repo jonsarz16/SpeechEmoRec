@@ -1,67 +1,25 @@
 import streamlit as st
-from streamlit_pages.streamlit_pages import MultiPage
- 
-# import cv2
-import numpy as np
-import streamlit as st
-from preprocess_augment import *
-from model_predict import model_predict
-import tensorflow as tf
-from keras.models import load_model
-import tensorflow.keras as keras
+from streamlit_option_menu import option_menu 
 
 
+selected = option_menu(
+    menu_title="Main Menu",
+    options=["Improved Algo", "Baseline", "Performance Comparison"],
+    icons=["house","book","envelope"],
+    menu_icon="cast",
+    default_index=0,
+    orientation="horizontal",
+    styles={
+        "container": {"padding": "0!important", "background-color": "#fafafa"},
+        "icon": {"color": "orange", "font-size": "25px"}, 
+        "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+        "nav-link-selected": {"background-color": "green"},
+    }
+)
 
-st.header("Speech Emotion Recognition")
-def improved():
-    st.write("Welcome")
-    if st.button("Click Start"):
-        st.write("Improved Algorithm")
-
-
-def baseline():
-    st.write("Welcome")
-    if st.button("Click Start"):
-        st.write("Baseline Algorithm")
-
-
-def perf_comparison():
-    st.write("Welcome")
-    if st.button("Click Contact"):
-        st.write("Performance Comparison")
-
-
-# call app class object
-app = MultiPage()
-# Add pages
-app.add_page("Improved Algorithm",improved)
-app.add_page("Baseline Alogrithm",baseline)
-app.add_page("Performance Comparison",perf_comparison)
-app.run()
-
-
-
-
-
-
-
-
-# load models
-model = load_model("model.hdf5")
-
-### load file
-file_audio = st.file_uploader("", type=['mp3','wav'])
-
-if file_audio is not None:
-    CLASSIFY = st.button("Generate Prediction")
-  # preprocess the audio file
-    input = model_predict(file_audio)
-else:
-    CLASSIFY = st.button("Generate Prediction on Test File")
-    # preprocess the audio file
-    audio_file = open('YAF_back_angry.wav', 'rb')
-    input = model_predict(audio_file)
-    
-if CLASSIFY:
-    output = model.predict(input)
-    st.write(output)
+if selected == "Improved Algo":
+    st.title(f"You have selected {selected}")
+if selected == "Baseline":
+    st.title(f"You have selected {selected}")
+if selected == "Performance Comparison":
+    st.title(f"You have selected {selected}")
