@@ -46,3 +46,12 @@ if selected == "Baseline":
     model = load_model("model.hdf5")
     run_model(model)
 
+if selected == "Improved Algo":
+    st.write(f"You have selected {selected}")
+    # model = load_model("model.hdf5")
+    # run_model(model)
+
+if selected == "Performance Comparison":
+    st.write("Analysis")
+
+
