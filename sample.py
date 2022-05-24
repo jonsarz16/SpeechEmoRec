@@ -40,18 +40,27 @@ def run_model(model):
     if CLASSIFY:
         output = model.predict(input)
         st.write(output)
-
+col1, col2 = st.columns(2)
 if selected == "Baseline":
+    col1.header("Audio waveplot and Spectrogram")
+    # col1.image
+    col2.header("Prediction Results")
+
     st.write(f"You have selected {selected}")
     model = load_model("model.hdf5")
     run_model(model)
 
 if selected == "Improved Algo":
+    col1.header("Audio waveplot and Spectrogram")
+    # col1.image
+    col2.header("Prediction Results")
     st.write(f"You have selected {selected}")
     model = load_model("model.hdf5")
     run_model(model)
 
 if selected == "Performance Comparison":
     st.write("Analysis")
-
+    col1.header("DSCNN Baseline")
+    # col1.image
+    col2.header("DSCNN Improved")
 
