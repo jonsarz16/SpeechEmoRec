@@ -21,12 +21,6 @@ selected = option_menu(
         "nav-link-selected": {"background-color": "green"},}
 )
 
-if selected == "Baseline":
-    st.write(f"You have selected {selected}")
-    model = load_model("model.hdf5")
-    run_model(model)
-
-
 def run_model(model):
         # load file
     file_audio = st.file_uploader("", type=['mp3','wav'])
@@ -46,3 +40,9 @@ def run_model(model):
     if CLASSIFY:
         output = model.predict(input)
         st.write(output)
+
+if selected == "Baseline":
+    st.write(f"You have selected {selected}")
+    model = load_model("model.hdf5")
+    run_model(model)
+
