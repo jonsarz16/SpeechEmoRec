@@ -15,8 +15,8 @@ selected = option_menu(
     default_index=0,
     orientation="horizontal",
     styles={
-        "container": {"padding": "0!important", "background-color": "#a1b5d6", "display": "flex"},
-        "icon": {"color": "black", "font-size": "30px"}, 
+        "container": {"padding": "0!important", "background-color": "#a1b5d6", "display": "inline"},
+        "icon": {"color": "black", "font-size": "22px"}, 
         "nav-link": {"font-size": "17px", "text-align": "auto", "margin":"0px", "--hover-color": "#ffe100"},
         "nav-link-selected": {"background-color": "green"},}
 )
