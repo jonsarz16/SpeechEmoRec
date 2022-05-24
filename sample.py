@@ -27,5 +27,5 @@ if selected == "Baseline":
     st.write(f"You have selected {selected}")
     model = load_model("model.hdf5")
     main(model)
-if selected == "Performance Comparison":
+# if selected == "Performance Comparison":
     
