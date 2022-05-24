@@ -42,5 +42,5 @@ if selected == "Baseline":
     
     
     if CLASSIFY:
-    output = model.predict(input)
-    st.write(output)
+        output = model.predict(input)
+        st.write(output)
