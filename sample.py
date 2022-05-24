@@ -24,7 +24,6 @@ selected = option_menu(
 
 def run_model(model):
     col1, col2 = st.columns(2)
-
     with col1:
         file_audio = st.file_uploader("", type=['mp3','wav'])
         if file_audio is not None:
@@ -40,23 +39,19 @@ def run_model(model):
             st.write("Prediction Analysis.....")
 
 if selected == "Baseline":
-    
-    st.write(f"You have selected {selected}")
     model = load_model("model.hdf5")
     run_model(model)
 
 if selected == "Improved Algo":
-    
-    st.write(f"You have selected {selected}")
     model = load_model("model.hdf5")
     run_model(model)
 
-if selected == "Performance Comparison":
-    st.write("Analysis")
-    col1, col2 = st.columns(2)
 
+
+
+if selected == "Performance Comparison":
+    col1, col2 = st.columns(2)
     with col1:
         st.header("DSCNN Baseline")
-
     with col2:
         st.header("DSCNN Improved")
