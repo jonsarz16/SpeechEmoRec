@@ -35,4 +35,4 @@ if selected == "Improved Algo":
     with col2:
         if predict:
             st.title("Prediction Results")
-            st.write("Fear the Beard")
+            st.success("Predicted Emotion: ILOVEYOU")
