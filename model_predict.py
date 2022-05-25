@@ -2,7 +2,7 @@ import streamlit as st
 from preprocess_augment import *
 from keras.models import load_model
 
-def run_model():
+def run_model(modeltype):
     file_audio = st.file_uploader("", type=['mp3','wav'])
     if file_audio is not None:
         data_visual_baseline(file_audio)
