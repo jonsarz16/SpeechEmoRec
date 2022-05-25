@@ -48,7 +48,6 @@ def data_visual_baseline(audiofile):
   # input1 = input[:,:,:,np.newaxis]
 
 def data_visual_improved(audiofile):
-  
   sample, srate = librosa.load(audiofile)
   plt.figure()
   librosa.display.waveplot(sample, srate)
