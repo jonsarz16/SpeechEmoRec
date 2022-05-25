@@ -32,4 +32,6 @@ if selected == "Improved Algo":
 
     with col2:
         predict = st.button("Predict")
-        st.title("Prediction Results")
+        
+        if predict:
+            st.title("Prediction Results")
