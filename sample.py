@@ -23,12 +23,11 @@ selected = option_menu(
         "nav-link-selected": {"background-color": "green"},}
 )
 
-
 def run_model(model):
     file_audio = st.file_uploader("", type=['mp3','wav'])
     if file_audio is not None:
         model_predict(file_audio)
-        predict = st.button("Predict")
+        
             
     
 
@@ -37,7 +36,7 @@ if selected == "Baseline":
     with col1:
         model = load_model("model.hdf5")
         run_model(model)
-        
+        predict = st.button("Predict")
     with col2:
         st.write("snsnss")
         
