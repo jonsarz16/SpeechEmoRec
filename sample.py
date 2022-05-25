@@ -9,6 +9,14 @@ import librosa
 st.set_page_config(layout="wide")
 # st.header("Speech Emotion Recognition")
 
+
+#baseline model
+model = load_model("model.hdf5")
+
+# improved_model
+# improved_model = load_model("improved.hdf5")
+
+
 selected = option_menu(
     None,
     options=["Improved Algo", "Baseline", "Performance Comparison"],
@@ -24,13 +32,13 @@ selected = option_menu(
 )
 
 
-if selected == "Improved Algo":
+if selected == "Baseline":
+    st.success(selected)
     done = False
     col1, col2 = st.columns(2)
     with col1:
-        model = load_model("model.hdf5")
         done = True
-        run_model(model)
+        run_model(selected)
         predict = st.button("Predict")
     with col2:
         if predict:
