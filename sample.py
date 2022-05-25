@@ -31,10 +31,10 @@ if selected == "Improved Algo":
         model = load_model("model.hdf5")
         done = True
         run_model(model)
-        
+        predict = st.button("Predict")
     with col2:
         st.title("Prediction Results")
-        predict = st.button("Predict")
+        
         
         if predict:
             st.write("Fear the Beard")
