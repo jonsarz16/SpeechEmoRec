@@ -40,7 +40,7 @@ if selected == "Baseline":
         predict = st.button("Predict")
     with col2:
         if predict:
-            st.write("results")
+            st.header("Analysis Results")
         
         
         
