@@ -58,31 +58,17 @@ def data_visual_improved(audiofile):
   plt.show()  
   plt.savefig('waveplots.png',dpi = 70)
   st.image('waveplots.png', caption=' ')
-    
   FIG_SIZE = (10,5)
-  hop_length = 512 #stride
-  n_fft = 2048 #num. of samples per window
-  stft = librosa.stft(sample, n_fft=n_fft, hop_length=hop_length)
-  
-  
-  # mel_spectrogram
+  mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=2048, hop_length=128, n_mels=256)
+  mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
   plt.figure(figsize=FIG_SIZE)
-  librosa.display.specshow(spectrogram, sr=srate, hop_length=hop_length)
-  plt.xlabel("Time")
-  plt.ylabel("Frequency")
-  # plt.colorbar()
-  plt.title("Spectrogram")
-  plt.savefig('specs.png',transparent=True,dpi = 50)
-  st.image('specs.png', caption=' ')
+  librosa.display.specshow(mel_spect, y_axis='mel', fmax=8000, x_axis='time')
+  plt.title('Mel Spectrogram');
+  plt.show()
+  plt.savefig('melspecs.png',transparent=True,dpi = 50)
+  st.image('melspecs.png', caption=' ')
    
-  # mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
-  # mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)
-  # mel_spect1 = cv2.resize(mel_spect, (256, 256))
-    
-  # mel_spect1 = mel_spect1.astype("float")
-  # mel_spect1 = np.array(mel_spect1)
-  # input = np.expand_dims(mel_spect1,axis=0)
-  # input1 = input[:,:,:,np.newaxis]
+
 
 
 
