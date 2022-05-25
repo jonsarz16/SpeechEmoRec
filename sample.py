@@ -37,8 +37,12 @@ if selected == "Baseline":
     with col1:
         model = load_model("model.hdf5")
         run_model(model)
+        predict = st.button("Predict")
     with col2:
-        st.button("Predict")
+        if predict:
+            st.write("results")
+        
+        
         
 if selected == "Improved Algo":
     model = load_model("model.hdf5")
