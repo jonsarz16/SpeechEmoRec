@@ -44,7 +44,7 @@ def data_visual_improved(audiofile):
   plt.title("Waveplot for audio")
   plt.xlabel("Time (seconds)")
   plt.ylabel("Amplitude")
-  plt.savefig('waveplots.png',dpi = 70)
+  plt.savefig('waveplots.png',dpi = 100)
   st.image('waveplots.png', caption=' ')
   FIG_SIZE = (10,5)
   mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=2048, hop_length=128, n_mels=256)
