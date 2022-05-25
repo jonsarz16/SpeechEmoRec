@@ -58,5 +58,5 @@ else:
     with col2:
         if predict:
             st.title("Prediction Results")
-            st.success("Predicted Emotion: ILOVEYOU")
+            st.success("Predicted Emotion: ILOVEYOU balik kana pls")
  
