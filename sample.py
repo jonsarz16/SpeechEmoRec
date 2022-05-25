@@ -33,7 +33,8 @@ selected = option_menu(
 
 
 if selected == "Baseline":
-    st.success(selected)
+    modeltype = "Baseline"
+    st.success(modeltype)
     done = False
     col1, col2 = st.columns(2)
     with col1:
