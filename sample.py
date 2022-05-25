@@ -23,17 +23,18 @@ selected = option_menu(
         "nav-link-selected": {"background-color": "green"},}
 )
 
-
+done = False
 if selected == "Improved Algo":
-    done = False
+    
     col1, col2 = st.columns(2)
     with col1:
         model = load_model("model.hdf5")
-        run_model(model)
         done = True
-    with col2:
-        if done == True:
-            predict = st.button("Predict")
+        run_model(model)
         
-            if predict:
-                st.title("Prediction Results")
+    with col2:
+    if done == True:
+        predict = st.button("Predict")
+        
+        if predict:
+            st.title("Prediction Results")
