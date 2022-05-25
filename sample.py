@@ -45,3 +45,18 @@ if selected == "Baseline":
         if predict:
             st.title("Prediction Results")
             st.success("Predicted Emotion: ILOVEYOU")
+
+else:
+    modeltype = "Improved"
+    st.success(modeltype)
+    done = False
+    col1, col2 = st.columns(2)
+    with col1:
+        done = True
+        run_model(modeltype)
+        predict = st.button("Predict")
+    with col2:
+        if predict:
+            st.title("Prediction Results")
+            st.success("Predicted Emotion: ILOVEYOU")
+ 
