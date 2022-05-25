@@ -31,4 +31,5 @@ if selected == "Improved Algo":
         run_model(model)
 
     with col2:
+        predict = st.button("Predict")
         st.title("Prediction Results")
