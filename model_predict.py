@@ -3,11 +3,12 @@ from preprocess_augment import *
 from keras.models import load_model
 
 def run_model(modeltype):
-    file_audio = st.file_uploader("", type=['mp3','wav'])
-    if file_audio is not None:
-      if modeltype == "Baseline":
-        data_visual_baseline(file_audio)
-      else:
+  file_audio = st.file_uploader("", type=['mp3','wav'])
+  if file_audio is not None:
+    if modeltype == "Baseline":
+      data_visual_baseline(file_audio)
+    else:
+      data_visual_improved(file_audio)
         
 
 
