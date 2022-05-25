@@ -18,7 +18,7 @@ def model_predict(audiofile):
     plt.show()  
     plt.savefig('waveplots.png',dpi = 70)
     st.image('waveplots.png', caption=' ')
-    CLASSIFY = st.button("Generate Prediction")
+    
     FIG_SIZE = (10,5)
     hop_length = 512 #stride
     n_fft = 2048 #num. of samples per window
