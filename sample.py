@@ -39,8 +39,7 @@ if selected == "Baseline":
         run_model(model)
         predict = st.button("Predict")
     with col2:
-        if predict:
-            st.header("Analysis Results")
+        st.write("snsnss")
         
         
         
