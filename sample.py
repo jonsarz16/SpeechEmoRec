@@ -33,8 +33,8 @@ if selected == "Improved Algo":
         run_model(model)
         
     with col2:
-        xd = st.empty()
+        st.title("Prediction Results")
         predict = st.button("Predict")
         
         if predict:
-            st.title("Prediction Results")
+            st.write("Fear the Beard")
