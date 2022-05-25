@@ -33,7 +33,7 @@ def run_model(model):
             
             
     with col2:
-        CLASSIFY = st.button("Generate Prediction")
+        
         if CLASSIFY:
             output = model.predict(input)
             st.write("Prediction Analysis.....")
