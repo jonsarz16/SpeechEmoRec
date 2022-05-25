@@ -25,33 +25,21 @@ selected = option_menu(
 
 
 def run_model(model):
-    col1, col2 = st.columns(2)
-    with col1:
-        file_audio = st.file_uploader("", type=['mp3','wav'])
-        if file_audio is not None:
-            model_predict(file_audio)
-
-            with col2:
-                CLASSIFY = st.button("Generate Prediction", key = 'pred')
-                    if CLASSIFY:
-                        output = model.predict(input)
-                        st.write("Prediction Analysis.....")
+    file_audio = st.file_uploader("", type=['mp3','wav'])
+    if file_audio is not None:
+        model_predict(file_audio)
     
             
     
 
 if selected == "Baseline":
-    model = load_model("model.hdf5")
-    run_model(model)
-
-
-
-
-
-
-
-
-
+    col1, col2 = st.columns(2)
+    with col1:
+        model = load_model("model.hdf5")
+        run_model(model)
+    with col2:
+        st.button("Predict")
+        
 if selected == "Improved Algo":
     model = load_model("model.hdf5")
     run_model(model)
