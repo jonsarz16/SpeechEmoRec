@@ -30,7 +30,7 @@ def run_model(model):
         file_audio = st.file_uploader("", type=['mp3','wav'])
         if file_audio is not None:
             model_predict(file_audio)
-            
+            CLASSIFY = st.button("Generate Prediction")
             
     with col2:
         
