@@ -29,3 +29,6 @@ if selected == "Improved Algo":
     with col1:
         model = load_model("model.hdf5")
         run_model(model)
+
+    with col2:
+        st.title("Prediction Results")
