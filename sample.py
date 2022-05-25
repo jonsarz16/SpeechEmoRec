@@ -31,7 +31,7 @@ def run_model(model):
         if file_audio is not None:
             model_predict(file_audio)
     
-    CLASSIFY = st.button("Generate Prediction")
+    CLASSIFY = st.button("Generate Prediction", key = 'pred')
             
     with col2:
         
