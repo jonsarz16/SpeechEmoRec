@@ -32,10 +32,10 @@ def run_model(model):
             model_predict(file_audio)
 
             with col2:
-            CLASSIFY = st.button("Generate Prediction", key = 'pred')
-                if CLASSIFY:
-                output = model.predict(input)
-                st.write("Prediction Analysis.....")
+                CLASSIFY = st.button("Generate Prediction", key = 'pred')
+                    if CLASSIFY:
+                        output = model.predict(input)
+                        st.write("Prediction Analysis.....")
     
             
     
