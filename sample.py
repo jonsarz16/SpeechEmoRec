@@ -39,7 +39,7 @@ if selected == "Baseline":
     col1, col2 = st.columns(2)
     with col1:
         done = True
-        run_model(selected)
+        run_model(modeltype)
         predict = st.button("Predict")
     with col2:
         if predict:
