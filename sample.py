@@ -23,32 +23,9 @@ selected = option_menu(
         "nav-link-selected": {"background-color": "green"},}
 )
 
-def run_model(model):
-    file_audio = st.file_uploader("", type=['mp3','wav'])
-    if file_audio is not None:
-        model_predict(file_audio)
-        
-            
-    
 
-if selected == "Baseline":
+if selected == "Improved Algo":
     col1, col2 = st.columns(2)
     with col1:
         model = load_model("model.hdf5")
         run_model(model)
-        predict = st.button("Predict")
-    with col2:
-        st.write("snsnss")
-        
-        
-        
-if selected == "Improved Algo":
-    model = load_model("model.hdf5")
-    run_model(model)
-
-if selected == "Performance Comparison":
-    col1, col2 = st.columns(2)
-    with col1:
-        st.header("DSCNN Baseline")
-    with col2:
-        st.header("DSCNN Improved")

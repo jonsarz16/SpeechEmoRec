@@ -2,6 +2,13 @@ import streamlit as st
 from preprocess_augment import *
 from keras.models import load_model
 
+def run_model(model):
+    file_audio = st.file_uploader("", type=['mp3','wav'])
+    if file_audio is not None:
+        model_predict(file_audio)
+
+
+
 def model_predict(audiofile):
   
   sample, srate = librosa.load(audiofile)
@@ -28,13 +35,13 @@ def model_predict(audiofile):
   plt.savefig('specs.png',transparent=True,dpi = 50)
   st.image('specs.png', caption=' ')
    
-  mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
-  mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)
-  mel_spect1 = cv2.resize(mel_spect, (256, 256))
+  # mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=n_fft, hop_length=hop_length, n_mels=256)
+  # mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)
+  # mel_spect1 = cv2.resize(mel_spect, (256, 256))
     
-  mel_spect1 = mel_spect1.astype("float")
-  mel_spect1 = np.array(mel_spect1)
-  input = np.expand_dims(mel_spect1,axis=0)
-  input1 = input[:,:,:,np.newaxis]
-  st.write(model.predict(input1))
+  # mel_spect1 = mel_spect1.astype("float")
+  # mel_spect1 = np.array(mel_spect1)
+  # input = np.expand_dims(mel_spect1,axis=0)
+  # input1 = input[:,:,:,np.newaxis]
+
 
