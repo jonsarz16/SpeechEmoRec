@@ -40,7 +40,7 @@ if selected == "Baseline":
     with col1:
         done = True
         run_model(modeltype)
-        predict = st.button("Predict")
+        predict = st.button("Predict",key='baseline')
     with col2:
         if predict:
             st.title("Prediction Results")
@@ -54,7 +54,7 @@ else:
     with col1:
         done = True
         run_model(modeltype)
-        predict = st.button("Predict")
+        predict = st.button("Predict", key = 'improved')
     with col2:
         if predict:
             st.title("Prediction Results")
