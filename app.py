@@ -1,11 +1,13 @@
 import numpy as np
 import streamlit as st
-from streamlit_option_menu import option_menu 
-from model_predict import *
 import tensorflow as tf
-from keras.models import load_model
-import tensorflow.keras as keras
 import librosa
+import tensorflow.keras as keras
+from streamlit_option_menu import option_menu 
+from setup import *
+from keras.models import load_model
+
+
 st.set_page_config(layout="wide")
 # st.header("Speech Emotion Recognition")
 
