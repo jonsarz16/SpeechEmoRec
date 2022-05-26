@@ -46,7 +46,7 @@ if selected == "Baseline":
             st.title("Prediction Results")
             st.success("Predicted Emotion: ILOVEYOU")
 
-else:
+if selected == "Improved Algo":
     modeltype = "Improved"
     st.success(modeltype)
     done = False
@@ -60,3 +60,12 @@ else:
             st.title("Prediction Results")
             st.success("Predicted Emotion: ILOVEYOU balik kana pls")
  
+ 
+ if selected == "Performance Comparison":
+    col1, col2 = st.columns(2)
+     
+    with col1:
+        st.success("Baseline")
+    
+    with col2:
+        st.warning("Improved Algo")
