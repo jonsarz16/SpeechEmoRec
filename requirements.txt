@@ -13,3 +13,4 @@ simpleaudio
 soundfile
 ffmpeg
 PyOpenGL
+protobuf~=3.19.0
