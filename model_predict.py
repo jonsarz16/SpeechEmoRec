@@ -28,6 +28,7 @@ def data_visual_baseline(audiofile):
   hop_length = 512 #stride
   n_fft = 2048 #num. of samples per window
   stft = librosa.stft(sample, n_fft=n_fft, hop_length=hop_length)
+  spectrogram = np.abs(stft)
   plt.figure(figsize=FIG_SIZE)
   librosa.display.specshow(spectrogram, sr=srate, hop_length=hop_length)
   plt.xlabel("Time")
@@ -55,3 +56,27 @@ def data_visual_improved(audiofile):
   plt.savefig('melspecs.png',transparent=True,dpi = 80)
   st.image('melspecs.png', caption=' ')
    
+   
+
+def pred_baseline(audiofile):
+  sample, srate = librosa.load(audiofile)
+  mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=2048, hop_length=128, n_mels=256)
+  mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max) 
+  mel_spect_resize = cv2.resize(mel_spect, (256, 256))
+  mel_spect_resize = mel_spect_resize.astype("float")
+  mel_spect_resize = np.array(mel_spect1)
+  melspecs = np.expand_dims(mel_spect_resize,axis=0) 
+  output = melspecs[:,:,:,np.newaxis]
+  return output 
+   
+
+def pred_improved(audiofile):
+  sample, srate = librosa.load(audiofile)
+  mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=2048, hop_length=128, n_mels=256)
+  mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max) 
+  mel_spect_resize = cv2.resize(mel_spect, (256, 256))
+  mel_spect_resize = mel_spect_resize.astype("float")
+  mel_spect_resize = np.array(mel_spect1)
+  melspecs = np.expand_dims(mel_spect_resize,axis=0) 
+  output = melspecs[:,:,:,np.newaxis]
+  return output
