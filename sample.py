@@ -61,7 +61,7 @@ if selected == "Improved Algo":
             st.success("Predicted Emotion: ILOVEYOU balik kana pls")
  
  
- if selected == "Performance Comparison":
+if selected == "Performance Comparison":
     col1, col2 = st.columns(2)
      
     with col1:
