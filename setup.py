@@ -1,20 +1,9 @@
 import streamlit as st
-import os
 import numpy as np
 import librosa, librosa.display
-import pandas as pd
-import IPython.display as ipd
-from matplotlib import pyplot as plt
-
-import math
-import scipy
-import random
-from random import randrange, uniform
-
-from tensorflow.python.framework import dtypes
-import cv2
 import tensorflow as tf
-import tensorflow_io as tfio
+import cv2
+from matplotlib import pyplot as plt
 from keras.models import load_model
 
 def run_model(modeltype):

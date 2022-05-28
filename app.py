@@ -1,11 +1,6 @@
-import numpy as np
-import streamlit as st
-import tensorflow as tf
-import librosa
-import tensorflow.keras as keras
 from streamlit_option_menu import option_menu 
 from setup import *
-from keras.models import load_model
+
 
 
 st.set_page_config(layout="wide")
