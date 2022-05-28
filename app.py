@@ -2,11 +2,9 @@ from streamlit_option_menu import option_menu
 from setup import *
 
 
-
-st.set_page_config(layout="wide")
 # st.header("Speech Emotion Recognition")
-
-
+local_css("style.css")
+remote_css('https://fonts.googleapis.com/icon?family=Material+Icons')
 #baseline model
 model = load_model("model.hdf5")
 
@@ -14,6 +12,14 @@ model = load_model("model.hdf5")
 # improved_model = load_model("improved.hdf5")
 
 
+# with st.sidebar:
+#     st.write("Speech Emotion")
+#     agree = st.checkbox('Use Test file')
+# if agree:
+#     test_audio = "YAF_back_angry.wav"
+#     data_visual_improved(test_audio)
+
+# else:
 selected = option_menu(
     None,
     options=["Improved Algo", "Baseline", "Performance Comparison"],
@@ -22,45 +28,58 @@ selected = option_menu(
     default_index=0,
     orientation="horizontal",
     styles={
-        "container": {"padding": "0!important", "background-color": "#a1b5d6", "display": "inline"},
-        "icon": {"color": "black", "font-size": "22px"}, 
+        "container": {"padding": "0!important", "background-color": "#3CAEA3", "display": "inline"},
+        "icon": {"color": "black", "font-size": "25px"}, 
         "nav-link": {"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "#ffe100"},
-        "nav-link-selected": {"background-color": "green"},}
+        "nav-link-selected": {"background-color": "#0F2557"},}
 )
 
+if selected == "Improved Algo":
+    col1, col2 = st.columns(2)
+    container1 = st.empty()
+    
+    with col1:
+        file_audio1 = container1.file_uploader("", type=['mp3','wav'])
+        
+        if file_audio1 is not None:
+            data_visual_improved(file_audio1)
+            predict2 = container1.button("Predict", key = 'improved')
+            # holder.empty()
+
+    with col2:
+        try:
+            if predict2:
+                container1.empty()
+                st.title("Prediction Results")
+                st.success("Predicted Emotion: ILOVEYOU balik kana pls")
+        except:
+            pass
+        
 
 if selected == "Baseline":
-    modeltype = "Baseline"
-    st.success(modeltype)
-    done = False
     col1, col2 = st.columns(2)
+    container2 = st.empty()
+    
     with col1:
-        done = True
-        run_model(modeltype)
-        predict1 = st.button("Predict",key='baseline')
-    with col2:
-        if predict1:
-            st.title("Prediction Results")
-            st.success("Predicted Emotion: ILOVEYOU")
+        file_audio2 = container2.file_uploader("", type=['mp3','wav'])
+        
+        if file_audio2 is not None:
+            data_visual_baseline(file_audio2)
+            predict2 = container2.button("Predict", key = 'improved')
+            # holder.empty()
 
-if selected == "Improved Algo":
-    modeltype = "Improved"
-    st.success(modeltype)
-    done = False
-    col1, col2 = st.columns(2)
-    with col1:
-        done = True
-        run_model(modeltype)
-        predict2 = st.button("Predict", key = 'improved')
     with col2:
-        if predict2:
-            st.title("Prediction Results")
-            st.success("Predicted Emotion: ILOVEYOU balik kana pls")
- 
- 
+        try:
+            if predict2:
+                container2.empty()
+                st.title("Prediction Results")
+                st.success("Predicted Emotion: ILOVEYOU balik kana pls")
+        except:
+            pass
+
 if selected == "Performance Comparison":
     col1, col2 = st.columns(2)
-     
+    
     with col1:
         st.success("Baseline")
     
