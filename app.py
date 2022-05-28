@@ -37,9 +37,9 @@ if selected == "Baseline":
     with col1:
         done = True
         run_model(modeltype)
-        predict = st.button("Predict",key='baseline')
+        predict1 = st.button("Predict",key='baseline')
     with col2:
-        if predict:
+        if predict1:
             st.title("Prediction Results")
             st.success("Predicted Emotion: ILOVEYOU")
 
@@ -51,9 +51,9 @@ if selected == "Improved Algo":
     with col1:
         done = True
         run_model(modeltype)
-        predict = st.button("Predict", key = 'improved')
+        predict2 = st.button("Predict", key = 'improved')
     with col2:
-        if predict:
+        if predict2:
             st.title("Prediction Results")
             st.success("Predicted Emotion: ILOVEYOU balik kana pls")
  
