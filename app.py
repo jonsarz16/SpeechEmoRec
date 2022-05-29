@@ -5,12 +5,6 @@ from setup import *
 # st.header("Speech Emotion Recognition")
 local_css("style.css")
 remote_css('https://fonts.googleapis.com/icon?family=Material+Icons')
-#baseline model
-model = load_model("model.hdf5")
-
-# improved_model
-# improved_model = load_model("improved.hdf5")
-
 
 # with st.sidebar:
 #     st.write("Speech Emotion")
@@ -44,14 +38,14 @@ if selected == "Improved Algo":
         if file_audio1 is not None:
             data_visual_improved(file_audio1)
             predict2 = container1.button("Predict", key = 'improved')
-            # holder.empty()
 
     with col2:
         try:
             if predict2:
+                
+                st.title("Prediction Results X")
+                       
                 container1.empty()
-                st.title("Prediction Results")
-                st.success("Predicted Emotion: ILOVEYOU balik kana pls")
         except:
             pass
         
@@ -66,14 +60,14 @@ if selected == "Baseline":
         if file_audio2 is not None:
             data_visual_baseline(file_audio2)
             predict2 = container2.button("Predict", key = 'improved')
-            # holder.empty()
+           
 
     with col2:
         try:
             if predict2:
                 container2.empty()
                 st.title("Prediction Results")
-                st.success("Predicted Emotion: ILOVEYOU balik kana pls")
+                
         except:
             pass
 

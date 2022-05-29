@@ -2,23 +2,33 @@ import streamlit as st
 import numpy as np
 import librosa, librosa.display
 import tensorflow as tf
+import os
 import cv2
 from matplotlib import pyplot as plt
 from keras.models import load_model
+
 
 st.set_page_config(
      page_title="SER Web App",
      layout="wide",
      initial_sidebar_state="collapsed"
  )
+
+#baseline model
+test_model = load_model("model.hdf5")
+
+# improved_model
+# improved_model = load_model("improved.hdf5")
+
+
+
 def data_visual_baseline(audiofile):
   sample, srate = librosa.load(audiofile)
   plt.figure()
   librosa.display.waveplot(sample, srate)
 
   plt.xlabel("Time (seconds)")
-  plt.ylabel("Amplitude")
-  plt.show()  
+  plt.ylabel("Amplitude") 
   plt.savefig('waveplots1.png',dpi = 70)
   st.title("Audio Waveplot")
   st.image('waveplots1.png', caption=' ')
@@ -36,7 +46,14 @@ def data_visual_baseline(audiofile):
   plt.savefig('specs.png',transparent=True,dpi = 60)
   st.title("Spectrogram")
   st.image('specs.png', caption=' ')
+  # img1="specs.png"
+  # img2="waveplots1.png"
 
+  # ## If file exists, delete it ##
+  # if os.path.isfile(img1):
+  #   os.remove(img1)
+  # if os.path.isfile(img2):
+  #   os.remove(img2)
 
 def data_visual_improved(audiofile):
   sample, srate = librosa.load(audiofile)
@@ -57,29 +74,24 @@ def data_visual_improved(audiofile):
   plt.savefig('melspecs.png',transparent=True,dpi = 80)
   st.title("Mel-Spectrogram")
   st.image('melspecs.png', caption=' ')
-   
+  # img1="melspecs.png"
+  # img2="waveplots2.png"
 
-def pred_baseline(audiofile):
-  sample, srate = librosa.load(audiofile)
-  mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=2048, hop_length=128, n_mels=256)
-  mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max) 
+  # ## If file exists, delete it ##
+  # if os.path.isfile(img1):
+  #   os.remove(img1)
+  # if os.path.isfile(img2):
+  #   os.remove(img2)
+   
+  # model prediction
   mel_spect_resize = cv2.resize(mel_spect, (256, 256))
   mel_spect_resize = mel_spect_resize.astype("float")
-  mel_spect_resize = np.array(mel_spect1)
+  mel_spect_resize = np.array(mel_spect_resize)
   melspecs = np.expand_dims(mel_spect_resize,axis=0) 
   output = melspecs[:,:,:,np.newaxis]
-  return output 
-     
-def pred_improved(audiofile):
-  sample, srate = librosa.load(audiofile)
-  mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=2048, hop_length=128, n_mels=256)
-  mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max) 
-  mel_spect_resize = cv2.resize(mel_spect, (256, 256))
-  mel_spect_resize = mel_spect_resize.astype("float")
-  mel_spect_resize = np.array(mel_spect1)
-  melspecs = np.expand_dims(mel_spect_resize,axis=0) 
-  output = melspecs[:,:,:,np.newaxis]
-  return output
+  x = test_model.predict(output)
+  st.code(x)
+
 
 
 
