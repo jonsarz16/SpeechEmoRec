@@ -40,9 +40,9 @@ def data_visual_baseline(audiofile):
   spectrogram = np.abs(stft)
   plt.figure(figsize=FIG_SIZE)
   librosa.display.specshow(spectrogram, sr=srate, hop_length=hop_length)
-  plt.xlabel("Time")
-  plt.ylabel("Frequency")
-  plt.title("Spectrogram")
+  # plt.xlabel("Time")
+  # plt.ylabel("Frequency")
+  # plt.title("Spectrogram")
   plt.savefig('specs.png',transparent=True,dpi = 60)
   st.title("Spectrogram")
   st.image('specs.png', caption=' ')
@@ -80,7 +80,7 @@ def data_visual_improved(audiofile):
   librosa.display.specshow(mel_spect, y_axis='mel', fmax=8000, x_axis='time')
   
   plt.savefig('melspecs.png',transparent=True,dpi = 80)
-  st.title("Mel-Spectrogram")
+  # st.title("Mel-Spectrogram")
   st.image('melspecs.png', caption=' ')
   # img1="melspecs.png"
   # img2="waveplots2.png"
