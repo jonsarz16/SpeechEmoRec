@@ -27,6 +27,7 @@ selected = option_menu(
         "nav-link": {"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "#ffe100"},
         "nav-link-selected": {"background-color": "#0F2557"},}
 )
+emotions = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
 
 if selected == "Improved Algo":
     col1, col2 = st.columns(2)
@@ -67,6 +68,8 @@ if selected == "Baseline":
             if predict2:
                 container2.empty()
                 st.title("Prediction Results")
+                result = classify('melspecs.png')
+                st.write("Predicted Emotion: " + {emotions[result]})
                 
         except:
             pass
