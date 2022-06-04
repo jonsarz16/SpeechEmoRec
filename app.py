@@ -83,7 +83,7 @@ if selected == "Baseline":
                 
                 df = pd.DataFrame(emotions, columns=["Predicted emotion"])
                 df['Percentage'] = var
-                pd.options.display.float_format = "{:,.2f}".format
+                df['Percentage'] = df['Percentage'].apply(lambda x: float("{:.2f}".format(x)))
                 st.table(df)
                 
                 
