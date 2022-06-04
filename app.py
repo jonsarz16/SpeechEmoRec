@@ -69,7 +69,7 @@ if selected == "Baseline":
                 container2.empty()
                 st.title("Prediction Results")
                 result = classify('melspecs.png')
-                st.write(result)
+                st.write(emotions[result])
                 
         except:
             pass
