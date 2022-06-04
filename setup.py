@@ -22,7 +22,7 @@ st.set_page_config(
 
 
 pd.options.display.float_format = "{:,.2f}".format
-pd.set_option("display.precision", 5)
+
 def data_visual_baseline(audiofile):
   sample, srate = librosa.load(audiofile)
   plt.figure()
