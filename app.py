@@ -19,7 +19,7 @@ selected = option_menu(
     options=["Improved Algo", "Baseline", "Performance Comparison"],
     icons=["arrow-up-right-circle","arrow-repeat","window-stack"],
     menu_icon="cast",
-    default_index=0,
+    default_index=1,
     orientation="horizontal",
     styles={
         "container": {"padding": "0!important", "background-color": "#3CAEA3", "display": "inline"},
