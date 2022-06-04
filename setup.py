@@ -76,10 +76,9 @@ def classify(img_path):
     img_batch = np.expand_dims(img_array, axis=0)
 
     prediction = model.predict(img_batch)
+  
     
-    result = prediction
-    
-    return result
+    return prediction
 #     
 #     st.write(prediction)
 #     st.write(score)
