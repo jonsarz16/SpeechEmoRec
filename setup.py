@@ -76,9 +76,19 @@ def classify(img_path):
     img_batch = np.expand_dims(img_array, axis=0)
 
     prediction = model.predict(img_batch)
-    result = prediction.argmax()
-    return result
+    score = tf.nn.softmax(prediction[0])
+    result = score
+    
+    
+#     score = tf.nn.softmax(prediction[0])
+#     st.write(prediction)
+#     st.write(score)
+#     print(
+#     "This image most likely belongs to {} with a {:.2f} percent confidence."
+#     .format(class_names[np.argmax(score)], 100 * np.max(score))
+# )
 
+    return result
 
 
 def local_css(file_name):
