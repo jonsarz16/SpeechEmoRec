@@ -65,29 +65,14 @@ def data_visual_improved(audiofile):
   st.image('melspecs.png', caption=' ')
   
 
-
-
-
 def classify(img_path):
     #baseline model
     model = load_model("baseline500e.h5")
     img = image.load_img(img_path, target_size=(256, 256))
     img_array = image.img_to_array(img)
     img_batch = np.expand_dims(img_array, axis=0)
-
     prediction = model.predict(img_batch)
-  
-    
     return prediction
-#     
-#     st.write(prediction)
-#     st.write(score)
-#     print(
-#     "This image most likely belongs to {} with a {:.2f} percent confidence."
-#     .format(class_names[np.argmax(score)], 100 * np.max(score))
-# )
-
-
 
 def local_css(file_name):
     with open(file_name) as f:
@@ -99,3 +84,10 @@ def remote_css(url):
 def icon(icon_name):
     st.markdown(f'<i class="material-icons">{icon_name}</i>', unsafe_allow_html=True)
 
+#     
+#     st.write(prediction)
+#     st.write(score)
+#     print(
+#     "This image most likely belongs to {} with a {:.2f} percent confidence."
+#     .format(class_names[np.argmax(score)], 100 * np.max(score))
+# )
