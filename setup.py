@@ -76,11 +76,11 @@ def classify(img_path):
     img_batch = np.expand_dims(img_array, axis=0)
 
     prediction = model.predict(img_batch)
-    score = tf.nn.softmax(prediction[0])
-    result = score
+    
+    result = prediction
     
     
-#     score = tf.nn.softmax(prediction[0])
+#     
 #     st.write(prediction)
 #     st.write(score)
 #     print(
@@ -88,7 +88,6 @@ def classify(img_path):
 #     .format(class_names[np.argmax(score)], 100 * np.max(score))
 # )
 
-    return result
 
 
 def local_css(file_name):
