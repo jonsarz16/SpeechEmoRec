@@ -82,7 +82,7 @@ if selected == "Baseline":
                 var = score.numpy() * 100
                 df = pd.DataFrame(emotions, columns=["Predicted emotion"])
                 df['Emotion Percentage rate'] = var
-                df['Emotion Percentage rate'].apply(np.round)
+                df['Emotion Percentage rate'].round(decimals = 2)
                 st.table(df)
                 
                 
