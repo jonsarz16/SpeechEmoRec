@@ -15,7 +15,7 @@ st.set_page_config(
  )
 
 #baseline model
-test_model = load_model("baseline500e.hdf5")
+test_model = load_model("baseline500e.h5")
 
 # improved_model
 # improved_model = load_model("improved.hdf5")
