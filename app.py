@@ -82,7 +82,7 @@ if selected == "Baseline":
                 var = score.numpy() * 100
                 pd.options.display.float_format = "{:,.2f}".format
                 df = pd.DataFrame(emotions, columns=["Predicted emotion"])
-                df['Emotion Percentage rate'] = var
+                df['Percentage'] = var
                 
                 st.table(df)
                 
