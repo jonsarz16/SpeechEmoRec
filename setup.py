@@ -27,7 +27,7 @@ def data_visual_baseline(audiofile):
   librosa.display.waveplot(sample, srate)
   plt.xlabel("Time (seconds)")
   plt.ylabel("Amplitude")
-  plt.savefig('waveplots2.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=256)
+  plt.savefig('waveplots2.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=75)
   st.title("Audio Waveplot")
   st.image('waveplots2.png', caption=' ')
   FIG_SIZE = (10,5)
