@@ -30,25 +30,26 @@ selected = option_menu(
 emotions = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
 
 if selected == "Improved Algo":
-    col1, col2 = st.columns(2)
-    container1 = st.empty()
+    st.warning("to be continued")
+    # col1, col2 = st.columns(2)
+    # container1 = st.empty()
     
-    with col1:
-        file_audio1 = container1.file_uploader("", type=['mp3','wav'])
+    # with col1:
+    #     file_audio1 = container1.file_uploader("", type=['mp3','wav'])
         
-        if file_audio1 is not None:
-            data_visual_improved(file_audio1)
-            predict2 = container1.button("Predict", key = 'improved')
+    #     if file_audio1 is not None:
+    #         data_visual_improved(file_audio1)
+    #         predict2 = container1.button("Predict", key = 'improved')
 
-    with col2:
-        try:
-            if predict2:
+    # with col2:
+    #     try:
+    #         if predict2:
                 
-                st.title("Prediction Results X")
+    #             st.title("Prediction Results X")
                        
-                container1.empty()
-        except:
-            pass
+    #             container1.empty()
+    #     except:
+    #         pass
         
 
 if selected == "Baseline":
