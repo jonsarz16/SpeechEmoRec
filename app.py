@@ -79,6 +79,13 @@ if selected == "Baseline":
                 st.write("Predicted emotion:  {}."
                 .format(emotions[np.argmax(score)]))
                 
+                var = score.numpy() * 100
+                df = pd.DataFrame(emotions, columns=["Predicted emotion"])
+                df['Emotion Percentage rate'] = var
+                
+                st.table(df)
+                
+                
         except:
             pass
 
