@@ -79,7 +79,7 @@ def classify(img_path):
     
     result = prediction
     
-    
+    return result
 #     
 #     st.write(prediction)
 #     st.write(score)
