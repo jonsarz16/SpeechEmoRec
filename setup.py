@@ -37,8 +37,11 @@ def data_visual_baseline(audiofile):
   librosa.display.specshow(mel_spect,fmax=8000)
   
   plt.savefig('melspecs.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=256)
+  plt.savefig('mels.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=60)
+  
+  
   st.title("Mel-Spectrogram")
-  st.image('melspecs.png', caption=' ')
+  st.image('mels.png', caption=' ')
   
   
   
@@ -70,7 +73,6 @@ def classify(img_path):
     model = load_model("baseline500e.h5")
     img = image.load_img(img_path, target_size=(256, 256))
     img_array = image.img_to_array(img)
-
     img_batch = np.expand_dims(img_array, axis=0)
 
     prediction = model.predict(img_batch)
