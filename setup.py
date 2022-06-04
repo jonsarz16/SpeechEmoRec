@@ -57,7 +57,7 @@ def data_visual_improved(audiofile):
   plt.figure(figsize=FIG_SIZE)
   librosa.display.specshow(mel_spect,fmax=8000)
   
-  plt.savefig('melspecs.png',transparent=True,transparent=True,bbox_inches='tight',pad_inches=0, dpi=256)
+  plt.savefig('melspecs.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=256)
   st.title("Mel-Spectrogram")
   st.image('melspecs.png', caption=' ')
   
