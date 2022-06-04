@@ -70,11 +70,12 @@ if selected == "Baseline":
                 container2.empty()
                 st.title("Prediction Results")
                 result = classify('melspecs.png')
-                predicted_emo = emotions[result]
-                st.write(result)
+                
                 # st.write("**Predicted Emotion**: ",predicted_emo.upper())
                 # scores = tf.nn.softmax(result[0]).numpy()
                 # st.write(scores)
+                st.write("This image most likely belongs to {} with a {:.2f} percent confidence."
+.format(emotions[np.argmax(result)], 100 * np.max(result)))
         except:
             pass
 
