@@ -80,9 +80,10 @@ if selected == "Baseline":
                 .format(emotions[np.argmax(score)]))
                 
                 var = score.numpy() * 100
+                pd.options.display.float_format = "{:,.2f}".format
                 df = pd.DataFrame(emotions, columns=["Predicted emotion"])
                 df['Emotion Percentage rate'] = var
-                df['Emotion Percentage rate'].round(decimals = 2)
+                
                 st.table(df)
                 
                 
