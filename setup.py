@@ -54,6 +54,14 @@ def data_visual_baseline(audiofile):
   #   os.remove(img1)
   # if os.path.isfile(img2):
   #   os.remove(img2)
+   # model prediction
+  mel_spect_resize = cv2.resize(spectrogram, (256, 256))
+  mel_spect_resize = mel_spect_resize.astype("float")
+  mel_spect_resize = np.array(mel_spect_resize)
+  melspecs = np.expand_dims(mel_spect_resize,axis=0) 
+  output = melspecs[:,:,:,np.newaxis]
+  x = test_model.predict(output)
+  st.code(x)
 
 def data_visual_improved(audiofile):
   sample, srate = librosa.load(audiofile)
