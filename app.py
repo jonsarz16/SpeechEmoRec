@@ -71,6 +71,7 @@ if selected == "Baseline":
                 result = classify('melspecs.png')
                 predicted_emo = emotions[result]
                 st.write("**Predicted Emotion**: ",predicted_emo.upper())
+                st.write(result)
                 
         except:
             pass
