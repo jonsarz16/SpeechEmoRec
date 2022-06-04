@@ -4,7 +4,7 @@ import librosa, librosa.display
 import tensorflow as tf
 import os
 import cv2
-import pandas as pd
+
 from tensorflow.keras.preprocessing import image
 from matplotlib import pyplot as plt
 from keras.models import load_model
@@ -20,8 +20,6 @@ st.set_page_config(
 # improved_model
 # improved_model = load_model("improved.hdf5")
 
-
-pd.options.display.float_format = "{:,.2f}".format
 
 def data_visual_baseline(audiofile):
   sample, srate = librosa.load(audiofile)
