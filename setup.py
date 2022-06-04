@@ -21,7 +21,8 @@ st.set_page_config(
 # improved_model = load_model("improved.hdf5")
 
 
-
+pd.options.display.float_format = "{:,.2f}".format
+pd.set_option("display.precision", 5)
 def data_visual_baseline(audiofile):
   sample, srate = librosa.load(audiofile)
   plt.figure()
