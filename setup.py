@@ -37,34 +37,11 @@ def data_visual_baseline(audiofile):
   librosa.display.specshow(mel_spect,fmax=8000)
   
   plt.savefig('melspecs.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=256)
-  plt.savefig('mels.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=60)
+  # plt.savefig('mels.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=60)
   
-  
-  st.title("Mel-Spectrogram")
-  st.image('mels.png', caption=' ')
-  
-  
-  
-def data_visual_improved(audiofile):
-  sample, srate = librosa.load(audiofile)
-  plt.figure()
-  librosa.display.waveplot(sample, srate)
-  plt.xlabel("Time (seconds)")
-  plt.ylabel("Amplitude")
-  plt.savefig('waveplots2.png',dpi = 100)
-  st.title("Audio Waveplot")
-  st.image('waveplots2.png', caption=' ')
-  FIG_SIZE = (10,5)
-  mel_spectrogram = librosa.feature.melspectrogram(sample, sr=srate, n_fft=2048, hop_length=512, n_mels=256)
-  mel_spect = librosa.power_to_db(mel_spectrogram, ref=np.max)  #power_to_db = amplitude squared to decibel units
-  plt.figure(figsize=FIG_SIZE)
-  librosa.display.specshow(mel_spect,fmax=8000)
-  
-  plt.savefig('melspecs.png',transparent=True,bbox_inches='tight',pad_inches=0, dpi=256)
   st.title("Mel-Spectrogram")
   st.image('melspecs.png', caption=' ')
   
-
 def classify(img_path):
     #baseline model
     model = load_model("baseline500e.h5")
