@@ -1,6 +1,7 @@
 from streamlit_option_menu import option_menu 
 from setup import *
 import tensorflow as tf
+import pandas as pd
 
 # st.header("Speech Emotion Recognition")
 local_css("style.css")
