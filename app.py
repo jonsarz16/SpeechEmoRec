@@ -3,6 +3,9 @@ from setup import *
 import tensorflow as tf
 import pandas as pd
 
+pd.set_option('precision', 2)
+# pd.reset_option('display.float_format')
+
 # st.header("Speech Emotion Recognition")
 local_css("style.css")
 remote_css('https://fonts.googleapis.com/icon?family=Material+Icons')
@@ -29,7 +32,10 @@ selected = option_menu(
         "nav-link-selected": {"background-color": "#0F2557"},}
 )
 emotions = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
-
+emotions1 = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprise']
+x = [[ '😡','angry'], [ '🤮','disgust'], ['🥶','fear'],['😀','happy'], ['🤴','neutral'], ['😢','sad'],['😱','surprise']]
+                
+hehe = ['😡','🤮','🥶','😀','🤴','😢','😱']
 if selected == "Improved Algo":
     st.warning("to be continued")
     # col1, col2 = st.columns(2)
@@ -72,22 +78,29 @@ if selected == "Baseline":
                 st.title("Prediction Results")
                 result = classify('melspecs.png')
                 score = tf.nn.softmax(result[0])
-                # st.write("**Predicted Emotion**: ",predicted_emo.upper())
-                
+             
                 # st.write("This image most likely belongs to {} with a {:.2f} percent confidence."
                 # .format(emotions[np.argmax(result)], 100 * np.max(result)))
+              
+                st.write("Predicted emotion:  **{}**."
+                .format(emotions[np.argmax(score)].upper()))
                 
-                st.write("Predicted emotion:  {}."
-                .format(emotions[np.argmax(score)]))
                 
                 var = score.numpy() * 100
                 
-                df = pd.DataFrame(emotions, columns=["Predicted emotion"])
+                
+                # var = tf.convert_to_tensor(result).numpy()
+                # z = np.swapaxes(var,0,1)
+                
+                # df = pd.DataFrame(emotions, columns=["Predicted emotion"])
+                df = pd.DataFrame(x, columns=["","Predicted emotion"])
                 df['Percentage'] = var
                 df['Percentage'] = df['Percentage'].apply(lambda x: float("{:,.2f}".format(x)))
+                df['.'] = "%"
+                
+                df = df.style.background_gradient()
                 st.table(df)
-                
-                
+            
         except:
             pass
 
@@ -99,3 +112,8 @@ if selected == "Performance Comparison":
     
     with col2:
         st.warning("Improved Algo")
+
+
+
+
+
