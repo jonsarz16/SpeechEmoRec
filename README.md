@@ -1,10 +1,10 @@
 # SpeechEmoRec
 Speech Emotion Recognition Web App
 
-Python = 3.7.x
+
 **Web Deployment** [Streamlit]
 https://share.streamlit.io/jonsarz16/speechemorec/main/app.py
-
+**Python = 3.7.x**
 **Desktop Installation**
 1. **Download** or **clone** the repo.
 2. **cd** to the directory of the repo.
