@@ -1,6 +1,7 @@
 # SpeechEmoRec
 Speech Emotion Recognition Web App
 
+Python = 3.7.x
 **Web Deployment** [Streamlit]
 https://share.streamlit.io/jonsarz16/speechemorec/main/app.py
 
